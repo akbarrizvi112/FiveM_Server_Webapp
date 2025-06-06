@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player HUD - Vehicle Garage</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h1>PLAYER HUD</h1>
+            </div>
+            
+            <nav class="nav-tabs">
+                <a href="index.html" class="nav-tab">Dashboard</a>
+                <a href="inventory.html" class="nav-tab">Inventory</a>
+                <a href="vehicles.html" class="nav-tab active">Vehicles</a>
+                <a href="financials.html" class="nav-tab">Financials</a>
+                <a href="admin.html" class="nav-tab">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h2 class="page-title">Vehicle Garage</h2>
+
+        <!-- Garage Stats -->
+        <div class="garage-stats">
+            <div class="stat-item">
+                <span class="stat-label">Total Vehicles:</span>
+                <span class="stat-value">4</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Available:</span>
+                <span class="stat-value available-color">2</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">In Use:</span>
+                <span class="stat-value in-use-color">1</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">In Repair:</span>
+                <span class="stat-value repair-color">1</span>
+            </div>
+        </div>
+
+        <!-- Vehicle Filter -->
+        <div class="vehicle-filters">
+            <button class="filter-btn active" data-filter="all">All Vehicles</button>
+            <button class="filter-btn" data-filter="available">Available</button>
+            <button class="filter-btn" data-filter="in-use">In Use</button>
+            <button class="filter-btn" data-filter="repair">In Repair</button>
+        </div>
+
+        <!-- Vehicles Grid -->
+        <div class="vehicles-grid">
+            <div class="vehicle-card" data-status="available">
+                <div class="vehicle-header">
+                    <h3>Lamborghini Huracan</h3>
+                    <span class="status-badge available">Available</span>
+                </div>
+                <div class="vehicle-image">
+                    <i class="fas fa-car" style="color: #10b981;"></i>
+                </div>
+                <div class="vehicle-info">
+                    <p><span>Plate:</span> SHADOW01</p>
+                    <p><span>Location:</span> Downtown Garage</p>
+                    <p><span>Condition:</span> <span class="condition-excellent">100%</span></p>
+                    <p><span>Fuel:</span> <span class="fuel-full">95%</span></p>
+                    <p><span>Insurance:</span> <span class="insurance-active">Active</span></p>
+                </div>
+                <div class="vehicle-actions">
+                    <button class="btn btn-spawn" onclick="handleAction('Spawn', 'Lamborghini Huracan')">Spawn</button>
+                    <button class="btn btn-track" onclick="handleAction('Track', 'Lamborghini Huracan')">Track</button>
+                    <button class="btn btn-sell" onclick="handleAction('Sell', 'Lamborghini Huracan')">Sell</button>
+                </div>
+            </div>
+
+            <div class="vehicle-card" data-status="in-use">
+                <div class="vehicle-header">
+                    <h3>BMW M3</h3>
+                    <span class="status-badge in-use">In Use</span>
+                </div>
+                <div class="vehicle-image">
+                    <i class="fas fa-car" style="color: #ef4444;"></i>
+                </div>
+                <div class="vehicle-info">
+                    <p><span>Plate:</span> WOLF247</p>
+                    <p><span>Location:</span> City Center</p>
+                    <p><span>Condition:</span> <span class="condition-good">87%</span></p>
+                    <p><span>Fuel:</span> <span class="fuel-medium">62%</span></p>
+                    <p><span>Insurance:</span> <span class="insurance-active">Active</span></p>
+                </div>
+                <div class="vehicle-actions">
+                    <button class="btn btn-spawn disabled" disabled>Spawn</button>
+                    <button class="btn btn-track" onclick="handleAction('Track', 'BMW M3')">Track</button>
+                    <button class="btn btn-sell" onclick="handleAction('Sell', 'BMW M3')">Sell</button>
+                </div>
+            </div>
+
+            <div class="vehicle-card" data-status="available">
+                <div class="vehicle-header">
+                    <h3>Motorcycle Ninja</h3>
+                    <span class="status-badge available">Available</span>
+                </div>
+                <div class="vehicle-image">
+                    <i class="fas fa-motorcycle" style="color: #8b5cf6;"></i>
+                </div>
+                <div class="vehicle-info">
+                    <p><span>Plate:</span> BIKE123</p>
+                    <p><span>Location:</span> Garage A</p>
+                    <p><span>Condition:</span> <span class="condition-good">92%</span></p>
+                    <p><span>Fuel:</span> <span class="fuel-full">100%</span></p>
+                    <p><span>Insurance:</span> <span class="insurance-active">Active</span></p>
+                </div>
+                <div class="vehicle-actions">
+                    <button class="btn btn-spawn" onclick="handleAction('Spawn', 'Motorcycle Ninja')">Spawn</button>
+                    <button class="btn btn-track" onclick="handleAction('Track', 'Motorcycle Ninja')">Track</button>
+                    <button class="btn btn-sell" onclick="handleAction('Sell', 'Motorcycle Ninja')">Sell</button>
+                </div>
+            </div>
+
+            <div class="vehicle-card" data-status="repair">
+                <div class="vehicle-header">
+                    <h3>Tesla Model S</h3>
+                    <span class="status-badge repair">In Repair</span>
+                </div>
+                <div class="vehicle-image">
+                    <i class="fas fa-car" style="color: #6b7280;"></i>
+                </div>
+                <div class="vehicle-info">
+                    <p><span>Plate:</span> TESLA01</p>
+                    <p><span>Location:</span> Repair Shop</p>
+                    <p><span>Condition:</span> <span class="condition-poor">45%</span></p>
+                    <p><span>Battery:</span> <span class="fuel-low">15%</span></p>
+                    <p><span>Insurance:</span> <span class="insurance-claim">Claim Filed</span></p>
+                </div>
+                <div class="vehicle-actions">
+                    <button class="btn btn-spawn disabled" disabled>Spawn</button>
+                    <button class="btn btn-track" onclick="handleAction('Track', 'Tesla Model S')">Track</button>
+                    <button class="btn btn-repair" onclick="handleAction('Repair', 'Tesla Model S')">Repair</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vehicle Purchase -->
+        <div class="vehicle-purchase">
+            <h3>Purchase New Vehicle</h3>
+            <div class="purchase-grid">
+                <div class="purchase-card">
+                    <div class="purchase-image">
+                        <i class="fas fa-car" style="color: #f59e0b;"></i>
+                    </div>
+                    <h4>Sports Car</h4>
+                    <p class="purchase-price">$85,000</p>
+                    <button class="btn btn-purchase" onclick="handleAction('Purchase', 'Sports Car')">Purchase</button>
+                </div>
+                <div class="purchase-card">
+                    <div class="purchase-image">
+                        <i class="fas fa-truck" style="color: #059669;"></i>
+                    </div>
+                    <h4>Pickup Truck</h4>
+                    <p class="purchase-price">$45,000</p>
+                    <button class="btn btn-purchase" onclick="handleAction('Purchase', 'Pickup Truck')">Purchase</button>
+                </div>
+                <div class="purchase-card">
+                    <div class="purchase-image">
+                        <i class="fas fa-helicopter" style="color: #dc2626;"></i>
+                    </div>
+                    <h4>Helicopter</h4>
+                    <p class="purchase-price">$250,000</p>
+                    <button class="btn btn-purchase" onclick="handleAction('Purchase', 'Helicopter')">Purchase</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/vehicles.js"></script>
+</body>
+</html>

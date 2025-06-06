@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player HUD - Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h1>PLAYER HUD</h1>
+            </div>
+            
+            <nav class="nav-tabs">
+                <a href="index.html" class="nav-tab active">Dashboard</a>
+                <a href="inventory.html" class="nav-tab">Inventory</a>
+                <a href="vehicles.html" class="nav-tab">Vehicles</a>
+                <a href="financials.html" class="nav-tab">Financials</a>
+                <a href="admin.html" class="nav-tab">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+ 
+    <main class="main-content">      
+        <div class="player-profile">
+            <div class="profile-info">
+                <div class="avatar">
+                    <div class="avatar-image"></div>
+                </div>
+                <div class="profile-details">
+                    <h2 class="player-name">S.M Akbar Rizvi</h2>
+                    <p class="steam-id">Steam ID: 76561198123456789</p>
+                    <div class="player-stats">
+                        <span class="level-badge">Level 47</span>
+                        <span class="xp-text">XP: 8,750 / 10,000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon">
+                        <i class="fas fa-heart"></i>
+                        <span>Health</span>
+                    </div>
+                    <span class="stat-value">85%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill health" style="width: 85%"></div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Armor</span>
+                    </div>
+                    <span class="stat-value">62%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill armor" style="width: 62%"></div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon">
+                        <i class="fas fa-bolt"></i>
+                        <span>Stamina</span>
+                    </div>
+                    <span class="stat-value">91%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill stamina" style="width: 91%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-access-grid">
+            <a href="inventory.html" class="access-card">
+                <i class="fas fa-box"></i>
+                <h3>Inventory</h3>
+                <p>Manage your items</p>
+            </a>
+            <a href="vehicles.html" class="access-card">
+                <i class="fas fa-car"></i>
+                <h3>Vehicles</h3>
+                <p>Your garage</p>
+            </a>
+            <a href="financials.html" class="access-card">
+                <i class="fas fa-wallet"></i>
+                <h3>Financials</h3>
+                <p>Money management</p>
+            </a>
+        </div>
+
+
+        <div class="recent-activity">
+            <h3>Recent Activity</h3>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <div class="activity-icon health-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="activity-details">
+                        <div class="activity-text">Used Health Kit</div>
+                        <div class="activity-time">5 minutes ago</div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon vehicle-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="activity-details">
+                        <div class="activity-text">Spawned Lamborghini Huracan</div>
+                        <div class="activity-time">12 minutes ago</div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon money-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="activity-details">
+                        <div class="activity-text">Received $15,000 from vehicle sale</div>
+                        <div class="activity-time">2 hours ago</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>
