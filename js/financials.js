@@ -1,22 +1,19 @@
-// Financials specific JavaScript
+
 document.addEventListener("DOMContentLoaded", () => {
     const transactionFilters = document.querySelectorAll(".transaction-filters .filter-btn")
     const balanceCards = document.querySelectorAll(".balance-card")
   
-    // Transaction filter functionality
+  
     transactionFilters.forEach((filter) => {
       filter.addEventListener("click", function () {
-        // Remove active class from all filters
         transactionFilters.forEach((f) => f.classList.remove("active"))
-        // Add active class to clicked filter
         this.classList.add("active")
-  
         const filterValue = this.getAttribute("data-filter")
         filterTransactions(filterValue)
       })
     })
   
-    // Add hover effects to balance cards
+ 
     balanceCards.forEach((card) => {
       card.addEventListener("mouseenter", function () {
         this.style.transform = "translateY(-2px)"
@@ -29,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     })
   
-    // Add hover effects to investment cards
+  
     const investmentCards = document.querySelectorAll(".investment-card")
     investmentCards.forEach((card) => {
       card.addEventListener("mouseenter", function () {
@@ -43,8 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     })
   
-    // Animate balance changes periodically
-    setInterval(animateBalanceChanges, 60000) // Every minute
+    setInterval(animateBalanceChanges, 60000) 
   })
   
   function filterTransactions(filter) {
@@ -68,10 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const recipientGroup = document.getElementById("recipient-group")
     const confirmBtn = document.getElementById("confirm-btn")
   
-    // Reset form
+   
     document.getElementById("financial-form").reset()
   
-    // Configure modal based on type
     switch (type) {
       case "withdraw":
         modalTitle.textContent = "Withdraw Money"
@@ -101,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     modal.classList.add("show")
   
-    // Handle form submission
+   
     const form = document.getElementById("financial-form")
     form.onsubmit = (e) => {
       e.preventDefault()
@@ -129,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return
     }
   
-    // Create transaction
+  
     const transactionData = {
       type: type,
       amount: Number.parseFloat(amount),
@@ -138,16 +133,15 @@ document.addEventListener("DOMContentLoaded", () => {
       timestamp: new Date(),
     }
   
-    // Process transaction
+
     processTransaction(transactionData)
   
-    // Close modal
+   
     closeModal()
   
-    // Show success notification
     createNotification(`${type.charAt(0).toUpperCase() + type.slice(1)} Successful`, `$${amount}`)
   
-    // Update balances
+    
     updateBalances(type, Number.parseFloat(amount))
   }
   
@@ -162,12 +156,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
   function processTransaction(data) {
-    // Add transaction to the list
+
     const transactionList = document.querySelector(".transaction-list")
     const transactionHTML = createTransactionHTML(data)
     transactionList.insertAdjacentHTML("afterbegin", transactionHTML)
   
-    // Limit to 10 recent transactions
+  
     const transactions = transactionList.querySelectorAll(".transaction-item")
     if (transactions.length > 10) {
       transactions[transactions.length - 1].remove()
@@ -231,11 +225,10 @@ document.addEventListener("DOMContentLoaded", () => {
         break
     }
   
-    // Update display with animation
+
     animateBalanceUpdate(cashAmount, currentCash)
     animateBalanceUpdate(bankAmount, currentBank)
   
-    // Update total worth
     updateTotalWorth()
   }
   
@@ -258,7 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     const cashAmount = Number.parseFloat(document.querySelector(".cash-color").textContent.replace(/[$,]/g, ""))
     const bankAmount = Number.parseFloat(document.querySelector(".bank-color").textContent.replace(/[$,]/g, ""))
-    const cryptoValue = 28500 // Approximate crypto value
+    const cryptoValue = 28500 
   
     const totalWorth = cashAmount + bankAmount + cryptoValue
     animateBalanceUpdate(totalElement, totalWorth)
@@ -267,9 +260,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function animateBalanceChanges() {
     const balanceAmounts = document.querySelectorAll(".balance-amount")
     balanceAmounts.forEach((amount) => {
-      // Simulate small balance changes
+      
       const currentValue = Number.parseFloat(amount.textContent.replace(/[$₿,]/g, ""))
-      const change = (Math.random() - 0.5) * 100 // Random change between -50 and +50
+      const change = (Math.random() - 0.5) * 100 
       const newValue = Math.max(0, currentValue + change)
   
       if (amount.textContent.includes("₿")) {
@@ -278,7 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
         amount.textContent = `$${Math.round(newValue).toLocaleString()}`
       }
   
-      // Add visual feedback
+     
       amount.style.transform = "scale(1.05)"
       setTimeout(() => {
         amount.style.transform = "scale(1)"
@@ -316,7 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000)
   }
   
-  // Close modal when clicking outside
+
   document.addEventListener("click", (e) => {
     const modal = document.getElementById("financial-modal")
     if (e.target === modal) {
