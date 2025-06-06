@@ -113,7 +113,7 @@ Welcome to the Figma design documentation for the **Game Dashboard UI**. This fi
 
 ---
 
-## 📬 Contact
+## Contact
 
 For questions, updates, or suggestions, please reach out to the UI/UX Designer or Project Lead.
 
