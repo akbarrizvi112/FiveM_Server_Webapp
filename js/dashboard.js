@@ -1,6 +1,4 @@
-// Dashboard specific JavaScript
 document.addEventListener("DOMContentLoaded", () => {
-    // Animate progress bars on load
     const progressBars = document.querySelectorAll(".progress-fill")
     progressBars.forEach((bar) => {
       const width = bar.style.width
@@ -10,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 500)
     })
   
-    // Add hover effects to cards
+
     const cards = document.querySelectorAll(".access-card, .stat-card, .recent-activity")
     cards.forEach((card) => {
       card.addEventListener("mouseenter", function () {
@@ -24,12 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     })
   
-    // Update stats periodically (simulation)
-    setInterval(updateStats, 30000) // Update every 30 seconds
+    setInterval(updateStats, 30000) 
   })
   
   function updateStats() {
-    // Simulate stat updates
+ 
     const healthBar = document.querySelector(".progress-fill.health")
     const armorBar = document.querySelector(".progress-fill.armor")
     const staminaBar = document.querySelector(".progress-fill.stamina")
@@ -42,11 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   
-  // Handle action function
   function handleAction(action, item = "") {
     createNotification(action, item)
   
-    // Add specific action effects
     switch (action.toLowerCase()) {
       case "use":
         playActionSound("use")
@@ -58,8 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         playActionSound("default")
     }
   }
-  
-  // Create notification
+
   function createNotification(action, item = "") {
     const notification = document.createElement("div")
     notification.style.cssText = `
@@ -92,7 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000)
   }
   
-  // Sound effects simulation
   function playActionSound(type) {
     if (typeof window.AudioContext !== "undefined" || typeof window.webkitAudioContext !== "undefined") {
       const audioContext = new (window.AudioContext || window.webkitAudioContext)()

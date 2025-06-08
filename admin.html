@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Player HUD - Admin Panel</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-   
+    <!-- Header -->
     <header class="header">
         <div class="header-content">
             <div class="logo">
@@ -25,14 +25,18 @@
                 <a href="financials.html" class="nav-tab">Financials</a>
                 <a href="admin.html" class="nav-tab active">Admin</a>
             </nav>
+            
+            <button class="btn btn-logout" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
         </div>
     </header>
 
-    
+    <!-- Main Content -->
     <main class="main-content">
         <h2 class="page-title admin-title">Admin Panel</h2>
 
-        
+        <!-- Server Stats -->
         <div class="admin-stats-grid">
             <div class="admin-stat-card">
                 <div class="stat-icon online-icon">
@@ -68,6 +72,7 @@
             </div>
         </div>
 
+        <!-- Admin Actions -->
         <div class="admin-actions">
             <button class="btn btn-broadcast" onclick="showBroadcastModal()">
                 <i class="fas fa-bullhorn"></i>
@@ -87,6 +92,7 @@
             </button>
         </div>
 
+        <!-- Player Management -->
         <div class="player-management">
             <div class="management-header">
                 <h3>Player Management</h3>
@@ -171,6 +177,7 @@
             </div>
         </div>
 
+        <!-- Server Logs -->
         <div class="server-logs">
             <h3>Recent Server Activity</h3>
             <div class="logs-container">
@@ -203,6 +210,7 @@
         </div>
     </main>
 
+    <!-- Player Action Modal -->
     <div id="player-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -251,6 +259,7 @@
         </div>
     </div>
 
+    <!-- Broadcast Modal -->
     <div id="broadcast-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -282,5 +291,6 @@
     </div>
 
     <script src="/js/admin.js"></script>
+    <script src="/js/auth.js"></script>
 </body>
 </html>
