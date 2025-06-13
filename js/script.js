@@ -389,8 +389,7 @@ document.addEventListener("DOMContentLoaded", () => {
         1: "dashboard",
         2: "inventory",
         3: "vehicles",
-        4: "financials",
-        5: "admin",
+        4: "admin",
       }
   
       if (tabMap[e.key]) {

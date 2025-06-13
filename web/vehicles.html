@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player HUD - Vehicle Garage</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h1>PLAYER MANAGEMENT SYSTEM</h1>
+            </div>
+            
+            <div style="display: flex;">
+                <nav class="nav-tabs">
+                    <a href="dashboard.html" class="nav-tab">Dashboard</a>
+                    <a href="inventory.html" class="nav-tab">Inventory</a>
+                    <a href="vehicles.html" class="nav-tab active">Vehicles</a>
+                    <a href="admin.html" class="nav-tab" id="adminLink" style="display: none;">Admin</a>
+                </nav>
+                &nbsp;
+                &nbsp;
+                <button class="btn btn-logout" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h2 class="page-title">PLAYER VEHICLE GARAGE</h2>
+
+        <!-- Garage Stats -->
+        <div class="garage-stats">
+            <div class="stat-item2">
+                <span class="stat-label">Total Vehicles:</span>
+                <span class="stat-value" id="totalVehicles">0</span>
+            </div>
+            <div class="stat-item2">
+                <span class="stat-label">Available:</span>
+                <span class="stat-value available-color" id="availableVehicles">0</span>
+            </div>
+            <div class="stat-item2">
+                <span class="stat-label">In Use:</span>
+                <span class="stat-value in-use-color" id="inUseVehicles">0</span>
+            </div>
+            <div class="stat-item2">
+                <span class="stat-label">In Repair:</span>
+                <span class="stat-value repair-color" id="inRepairVehicles">0</span>
+            </div>
+        </div>
+
+
+        <!-- Vehicle Filter -->
+        <div class="vehicle-filters">
+            <button class="filter-btn active" data-filter="all">All Vehicles</button>
+            <button class="filter-btn" data-filter="available">Available</button>
+            <button class="filter-btn" data-filter="in-use">In Use</button>
+            <button class="filter-btn" data-filter="repair">In Repair</button>
+        </div>
+
+        <!-- Vehicles Grid -->
+        <div class="vehicles-grid" id="vehicle-list">
+            <!-- ALL VEHICLES WILL BE LISTED HERE -->
+        </div>
+
+        <!-- Vehicle Purchase -->
+        <div class="vehicle-purchase">
+            <h3>Purchase New Vehicle</h3>
+            <div class="purchase-grid">
+                <div class="purchase-card">
+                    <div class="purchase-image">
+                        <i class="fas fa-car" style="color: #f59e0b;"></i>
+                    </div>
+                    <h4>Toyota Supra</h4>
+                    <p class="purchase-price">$85,000</p>
+                    <button class="btn btn-purchase" onclick="handleAction('Purchase', 'Toyota Supra')">Purchase</button>
+                </div>
+                <div class="purchase-card">
+                    <div class="purchase-image">
+                        <i class="fas fa-car" style="color: #059669;"></i>
+                    </div>
+                    <h4>Nissan GTR</h4>
+                    <p class="purchase-price">$45,000</p>
+                    <button class="btn btn-purchase" onclick="handleAction('Purchase', 'Nissan GTR')">Purchase</button>
+                </div>
+                <div class="purchase-card">
+                    <div class="purchase-image">
+                        <i class="fas fa-car" style="color: #dc2626;"></i>
+                    </div>
+                    <h4>Range Rover Vogue</h4>
+                    <p class="purchase-price">$250,000</p>
+                    <button class="btn btn-purchase" onclick="handleAction('Purchase', 'Range Rover Vogue')">Purchase</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/vehicles.js"></script>
+    <script src="/js/auth.js"></script>
+</body>
+</html>

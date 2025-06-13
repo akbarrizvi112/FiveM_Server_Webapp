@@ -4,55 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Player HUD - Admin Panel</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
+   
     <header class="header">
         <div class="header-content">
             <div class="logo">
                 <div class="logo-icon">
                     <i class="fas fa-gamepad"></i>
                 </div>
-                <h1>PLAYER HUD</h1>
+                <h1>PLAYER MANAGEMENT SYSTEM</h1>
             </div>
             
-            <nav class="nav-tabs">
-                <a href="index.html" class="nav-tab">Dashboard</a>
-                <a href="inventory.html" class="nav-tab">Inventory</a>
-                <a href="vehicles.html" class="nav-tab">Vehicles</a>
-                <a href="financials.html" class="nav-tab">Financials</a>
-                <a href="admin.html" class="nav-tab active">Admin</a>
-            </nav>
-            
-            <button class="btn btn-logout" onclick="logout()">
-                <i class="fas fa-sign-out-alt"></i> Logout
-            </button>
+            <div style="display: flex;">
+                <nav class="nav-tabs">
+                    <a href="dashboard.html" class="nav-tab">Dashboard</a>
+                    <a href="inventory.html" class="nav-tab">Inventory</a>
+                    <a href="vehicles.html" class="nav-tab">Vehicles</a>
+                    <a href="admin.html" class="nav-tab active" id="adminLink" style="display: none;">Admin</a>
+                </nav>
+                &nbsp;
+                &nbsp;
+                <button class="btn btn-logout" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>            
         </div>
     </header>
 
-    <!-- Main Content -->
+    
     <main class="main-content">
-        <h2 class="page-title admin-title">Admin Panel</h2>
+        <h2 class="page-title admin-title">ADMIN PANEL</h2>
 
-        <!-- Server Stats -->
+        
         <div class="admin-stats-grid">
             <div class="admin-stat-card">
                 <div class="stat-icon online-icon">
                     <i class="fas fa-users"></i>
                 </div>
                 <h3 class="stat-label online">Online Players</h3>
-                <div class="stat-number">47</div>
-                <div class="stat-change">+5 from yesterday</div>
+                <div class="stat-number" id="tPlayerCount">0</div>
+                <div class="stat-change">+1 from yesterday</div>
             </div>
             <div class="admin-stat-card">
                 <div class="stat-icon vehicles-icon">
                     <i class="fas fa-car"></i>
                 </div>
                 <h3 class="stat-label vehicles">Total Vehicles</h3>
-                <div class="stat-number">1,247</div>
-                <div class="stat-change">+23 this week</div>
+                <div class="stat-number" id="vehicleStatQuant">0</div>
+                <div class="stat-change">+3 this week</div>
             </div>
             <div class="admin-stat-card">
                 <div class="stat-icon uptime-icon">
@@ -67,12 +69,11 @@
                     <i class="fas fa-box"></i>
                 </div>
                 <h3 class="stat-label items">Total Items</h3>
-                <div class="stat-number">8,945</div>
-                <div class="stat-change">+156 today</div>
+                <div class="stat-number" id="pItemCount">0</div>
+                <div class="stat-change">+5 today</div>
             </div>
         </div>
 
-        <!-- Admin Actions -->
         <div class="admin-actions">
             <button class="btn btn-broadcast" onclick="showBroadcastModal()">
                 <i class="fas fa-bullhorn"></i>
@@ -92,7 +93,6 @@
             </button>
         </div>
 
-        <!-- Player Management -->
         <div class="player-management">
             <div class="management-header">
                 <h3>Player Management</h3>
@@ -115,7 +115,7 @@
                     <thead>
                         <tr>
                             <th>Player Name</th>
-                            <th>Steam ID</th>
+                            <th>Identifier</th>
                             <th>Level</th>
                             <th>Status</th>
                             <th>Last Seen</th>
@@ -123,61 +123,13 @@
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr data-status="online">
-                            <td>S.M Akbar Rizvi</td>
-                            <td>76561198123456789</td>
-                            <td>47</td>
-                            <td><span class="status-badge online">Online</span></td>
-                            <td>Now</td>
-                            <td>0</td>
-                            <td>
-                                <div class="action-buttons">
-                                    <button class="btn btn-reward" onclick="showPlayerModal('reward', 'S.M Akbar Rizvi')">Reward</button>
-                                    <button class="btn btn-warn" onclick="showPlayerModal('warn', 'S.M Akbar Rizvi')">Warn</button>
-                                    <button class="btn btn-kick" onclick="showPlayerModal('kick', 'S.M Akbar Rizvi')">Kick</button>
-                                    <button class="btn btn-ban" onclick="showPlayerModal('ban', 'S.M Akbar Rizvi')">Ban</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr data-status="online">
-                            <td>GAMER_PRO_2023</td>
-                            <td>76561198987654321</td>
-                            <td>32</td>
-                            <td><span class="status-badge online">Online</span></td>
-                            <td>Now</td>
-                            <td>1</td>
-                            <td>
-                                <div class="action-buttons">
-                                    <button class="btn btn-reward" onclick="showPlayerModal('reward', 'GAMER_PRO_2023')">Reward</button>
-                                    <button class="btn btn-warn" onclick="showPlayerModal('warn', 'GAMER_PRO_2023')">Warn</button>
-                                    <button class="btn btn-kick" onclick="showPlayerModal('kick', 'GAMER_PRO_2023')">Kick</button>
-                                    <button class="btn btn-ban" onclick="showPlayerModal('ban', 'GAMER_PRO_2023')">Ban</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr data-status="offline">
-                            <td>NIGHT_RIDER_99</td>
-                            <td>76561198555666777</td>
-                            <td>28</td>
-                            <td><span class="status-badge offline">Offline</span></td>
-                            <td>2 hours ago</td>
-                            <td>0</td>
-                            <td>
-                                <div class="action-buttons">
-                                    <button class="btn btn-reward" onclick="showPlayerModal('reward', 'NIGHT_RIDER_99')">Reward</button>
-                                    <button class="btn btn-warn" onclick="showPlayerModal('warn', 'NIGHT_RIDER_99')">Warn</button>
-                                    <button class="btn btn-kick disabled" disabled>Kick</button>
-                                    <button class="btn btn-ban" onclick="showPlayerModal('ban', 'NIGHT_RIDER_99')">Ban</button>
-                                </div>
-                            </td>
-                        </tr>
+                    <tbody id="player-table-body">
+                        <!-- ALL DATA WILL BE LOADED HERE-->
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- Server Logs -->
         <div class="server-logs">
             <h3>Recent Server Activity</h3>
             <div class="logs-container">
@@ -210,7 +162,6 @@
         </div>
     </main>
 
-    <!-- Player Action Modal -->
     <div id="player-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -240,7 +191,6 @@
                     <div class="form-group" id="reward-group" style="display: none;">
                         <label for="reward-type">Reward Type:</label>
                         <select id="reward-type" name="reward-type">
-                            <option value="money">Money</option>
                             <option value="xp">Experience Points</option>
                             <option value="item">Item</option>
                             <option value="vehicle">Vehicle</option>
@@ -259,7 +209,6 @@
         </div>
     </div>
 
-    <!-- Broadcast Modal -->
     <div id="broadcast-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">

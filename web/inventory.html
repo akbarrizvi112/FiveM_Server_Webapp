@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player HUD - Inventory</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h1>PLAYER MANAGEMENT SYSTEM</h1>
+            </div>
+            
+            <div style="display: flex;">
+                <nav class="nav-tabs">
+                    <a href="dashboard.html" class="nav-tab">Dashboard</a>
+                    <a href="inventory.html" class="nav-tab active">Inventory</a>
+                    <a href="vehicles.html" class="nav-tab">Vehicles</a>
+                    <a href="admin.html" class="nav-tab" id="adminLink" style="display: none;">Admin</a>
+                </nav>
+                &nbsp;
+                &nbsp;
+                <button class="btn btn-logout" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h2 class="page-title">PLAYER INVENTORY</h2>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search items..." id="inventory-search">
+            </div>
+        </div>
+
+        <!-- Inventory Stats -->
+        <div class="inventory-stats">
+            <div class="stat-item2">
+                <span class="stat-label">Total Items:</span>
+                <span class="stat-value">0</span>
+            </div>
+            <div class="stat-item2">
+                <span class="stat-label">Weight:</span>
+                <span class="stat-value">0 / 100 kg</span>
+            </div>
+            <div class="stat-item2">
+                <span class="stat-label">Value:</span>
+                <span class="stat-value">$0</span>
+            </div>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="category-filters">
+            <button class="filter-btn active" data-category="all">All Items</button>
+            <button class="filter-btn" data-category="weapons">Weapons</button>
+            <button class="filter-btn" data-category="medical">Medical</button>
+            <button class="filter-btn" data-category="tools">Tools</button>
+            <button class="filter-btn" data-category="misc">Miscellaneous</button>
+        </div>
+        
+        <!-- Inventory Grid (Will be dynamically filled by JS) -->
+        <div class="inventory-grid" id="inventory-grid">
+            <p id="no-items" style="text-align: center; color: #888;">No items to display.</p>
+        </div>
+    </main>
+
+    <script src="/js/inventory.js"></script>
+    <script src="/js/auth.js"></script>
+</body>
+</html>

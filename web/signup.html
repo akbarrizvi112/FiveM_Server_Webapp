@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Player HUD - Sign Up</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body class="auth-body">
@@ -40,18 +40,18 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="signup-username">Username</label>
+                    <label for="signup-username">Player Identifier</label>
                     <div class="input-group">
                         <i class="fas fa-at"></i>
-                        <input type="text" id="signup-username" name="username" placeholder="Choose a username" required>
+                        <input type="text" id="signup-username" name="username" placeholder="Enter your Identifier" required>
                     </div>
                     <div class="input-hint">
                         <i class="fas fa-info-circle"></i>
-                        Username must be 3-20 characters long
+                        Identifier must follow the format (2023X-BXX-XXX)
                     </div>
                 </div>
 
-                <div class="form-group">
+                <!--<div class="form-group">
                     <label for="email">Email Address</label>
                     <div class="input-group">
                         <i class="fas fa-envelope"></i>
@@ -69,7 +69,7 @@
                         <i class="fas fa-info-circle"></i>
                         Link your Steam account for enhanced features
                     </div>
-                </div>
+                </div>-->
 
                 <div class="form-row">
                     <div class="form-group">
@@ -100,39 +100,11 @@
                     </div>
                     <div class="strength-text" id="strength-text">Password strength</div>
                 </div>
-
-                <!-- <div class="form-group">
-                    <label for="account-type">Account Type</label>
-                    <div class="account-type-selector">
-                        <label class="radio-option">
-                            <input type="radio" name="accountType" value="player" checked>
-                            <span class="radio-custom"></span>
-                            <div class="option-content">
-                                <i class="fas fa-user"></i>
-                                <div>
-                                    <strong>Player Account</strong>
-                                    <p>Access to dashboard, inventory, vehicles, and financials</p>
-                                </div>
-                            </div>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="accountType" value="admin">
-                            <span class="radio-custom"></span>
-                            <div class="option-content">
-                                <i class="fas fa-crown"></i>
-                                <div>
-                                    <strong>Admin Account</strong>
-                                    <p>Full access including admin panel and server management</p>
-                                </div>
-                            </div>
-                        </label>
-                    </div>
-                </div> -->
-
+  
                 <div class="form-group">
                     <label class="checkbox-container">
                         <input type="checkbox" id="terms" required>
-                        <span class="checkmark"></span>
+                        <span class="checkmark" style="padding-left: 18px;margin-right: 5px;"></span>
                         I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a>
                     </label>
                 </div>
@@ -185,6 +157,7 @@
         </div>
     </div>
 
+    <script src="/js/auth.js"></script>
     <script src="/js/auth.js"></script>
 </body>
 </html>
